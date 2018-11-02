@@ -5,6 +5,8 @@ const classroomController = require('../controllers').classroom;
 const studentController = require('../controllers').student;
 const lecturerController = require('../controllers').lecturer;
 const courseController = require('../controllers').course;
+const invoiceController = require('../controllers').invoice;
+const userController = require('../controllers').user;
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -38,6 +40,19 @@ router.get('/api/course/:id', courseController.getById);
 router.post('/api/course', courseController.add);
 router.put('/api/course/:id', courseController.update);
 router.delete('/api/course/:id', courseController.delete);
+
+/* Invoice Router */
+router.get('/api/invoice/:id', invoiceController.getById);
+router.post('/api/invoice', invoiceController.add);
+router.put('/api/invoice/:id', invoiceController.update);
+router.delete('/api/invoice/:id', invoiceController.delete);
+router.get('/api/invoices/:id', invoiceController.list);
+
+/* User Router */
+router.get('/api/user/:id', userController.getById);
+router.post('/api/user', userController.add);
+router.put('/api/user/:id', userController.update);
+router.delete('/api/user/:id', userController.delete);
 
 /* Advance Router */
 router.post('/api/student/add_course', studentController.addCourse);
